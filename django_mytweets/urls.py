@@ -17,6 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+# ]
+from django.conf.urls import include
+from django.urls import re_path as url
+from django.contrib import admin
+from tweets.views import Index
+
+admin.autodiscover()
+urlpatterns = [url(r'^$', Index.as_view()),
+               url(r'^admin/', admin.site.urls),
+               ]
