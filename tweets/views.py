@@ -24,7 +24,7 @@ class Profile(View):
     """User Profile page reachable from /user/<username> URL"""
 
     def get(self, request, username):
-        params = dict()()()
+        params = dict()
         user = User.objects.get(username=username)
         tweets = Tweet.objects.filter(user=user)
         params["tweets"] = tweets
