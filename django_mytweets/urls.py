@@ -23,9 +23,10 @@ from django.urls import path
 from django.conf.urls import include
 from django.urls import re_path as url
 from django.contrib import admin
-from tweets.views import Index
+from tweets.views import Index,Profile
 
 admin.autodiscover()
 urlpatterns = [url(r'^$', Index.as_view()),
                url(r'^admin/', admin.site.urls),
+               url(r'^user/(\w+)/$', Profile.as_view()),
                ]
